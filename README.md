@@ -9,12 +9,19 @@
 iOS 9
 
 ## Installation
-
+### CocoaPods
 DFContinuousForceTouchGestureRecognizer is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
     pod ‘DFContinuousForceTouchGestureRecognizer’, '~> 0.1.0’
+```
+
+### Swift Package Manager
+- iOS: Open Xcode, File->Swift Packages, search input **https://github.com/janlionly/DFContinuousForceTouchGestureRecognizer.git**, and then select branch **master**.
+- Or add dependencies in your `Package.swift`:
+``` ruby
+.package(url: "https://github.com/janlionly/DFContinuousForceTouchGestureRecognizer.git", .branch("master")),
 ```
 
 ## Author
@@ -46,27 +53,27 @@ Create a `DFContinuousForceTouchGestureRecognizer`, add it to a view like any ot
 Implement the `DFContinuousForceTouchDelegate` protocol to receive updates as the user's force changes:
 
     #pragma DFContinuousForceTouchDelegate
-
+    
     - (void) forceTouchRecognized:(DFContinuousForceTouchGestureRecognizer*)recognizer {
         //trigger force touch action
     }
-
+    
     - (void) forceTouchRecognizer:(DFContinuousForceTouchGestureRecognizer*)recognizer didStartWithForce:(CGFloat)force maxForce:(CGFloat)maxForce {
         //do something cool
     }
-
+    
     - (void) forceTouchRecognizer:(DFContinuousForceTouchGestureRecognizer*)recognizer didMoveWithForce:(CGFloat)force maxForce:(CGFloat)maxForce {
         //do something cool
     }
-
+    
     - (void) forceTouchRecognizer:(DFContinuousForceTouchGestureRecognizer*)recognizer didCancelWithForce:(CGFloat)force maxForce:(CGFloat)maxForce {
         //reset cool effects
     }
-
+    
     - (void) forceTouchRecognizer:(DFContinuousForceTouchGestureRecognizer*)recognizer didEndWithForce:(CGFloat)force maxForce:(CGFloat)maxForce {
         //reset cool effects
     }
-
+    
     - (void) forceTouchDidTimeout:(DFContinuousForceTouchGestureRecognizer*)recognizer {
         //reset cool effects
     }
@@ -75,10 +82,10 @@ Customizing the feel of it can be done through these configuration properties:
 
     //how to long to tracking force touches before calling forceTouchRecognized
     forceTouchRecognizer.forceTouchDelay = 0.2f;    
-
+    
     //make it moderately hard to start tracking force touches
     forceTouchRecognizer.baseForceTouchPressure = 3.0f;       
-
+    
     //make it really hard to trigger the force touches
     forceTouchRecognizer.triggeringForceTouchPressure = 6.0f; 
 
